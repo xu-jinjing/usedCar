@@ -5,6 +5,7 @@ const Home = () => import('../views/home/Home.vue')
 const Buy = () => import('../views/buy/Buy.vue')
 const Sell = () => import('../views/sell/Sell.vue')
 const Service = () => import('../views/service/Service.vue')
+const Enter = () => import('../views/enter/Enter.vue')
 
 Vue.use(VueRouter)
 
@@ -28,6 +29,10 @@ const routes = [
   {
     path:'/service',
     component: Service
+  },
+  {
+    path:'/enter',
+    component: Enter
   }
 ]
 

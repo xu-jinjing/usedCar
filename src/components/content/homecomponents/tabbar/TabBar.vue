@@ -43,7 +43,7 @@
     name:"TabBar", 
     methods: {
       btnClick(){
-        alert("预约成功")
+        alert("预约成功,请等待官方来电")
       }
     }
   }
