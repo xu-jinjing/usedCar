@@ -373,7 +373,7 @@
             .waist ul li{float: left;width: 100px;margin: 10px;}
             .waist ul li a{color: gray;}
             .waist ul li a:hover{color: black;}
-            .box dt img{margin-top: 0; width: 280px; height: 180px;}
+            .box dt img{margin-top: 0; width: 280px; height: 190px;}
             .box dd{margin: 0 70px; text-align: center;}
             .box{width: 280px;height: 260px;margin: 15px;float: left;background-color: aqua; }
             #d2 .box{width: 280px;height: 260px;margin: 15px;float: left;background-color: rgb(105, 127, 228);}
