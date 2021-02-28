@@ -1,7 +1,7 @@
 <template>
   <div class="enter">
     <div class="login">
-        <h2>二手车</h2>
+        <h2>花生三手车</h2>
         <p>用户名：<input type="text" id="name"><span id="pan"></span></body><br></p>
         <p>密码：<input type="text" id="password"><span id="pa"></span><br></p>
         <p>验证码：<input type="text" id="txt"> <button class="btn" @click="btnClick" >获取验证码</button></p>

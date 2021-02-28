@@ -22,7 +22,7 @@
       },
       btn2Click(){
         let price = 0;
-        price = parseInt(document.getElementById("txt").value/200000);
+        price = parseInt(document.getElementById("txt").value/360000);
         alert("您的爱车预估价为"+price +"元")
       }
     }
@@ -47,6 +47,7 @@
     width: 500px;
     height: 50px;
     line-height: 50px;
+    margin-top: 100px;
   }
 
   #txt placeholder{

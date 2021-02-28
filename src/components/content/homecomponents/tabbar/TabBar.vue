@@ -1,33 +1,33 @@
 <template>
       <div class="nav" id="nav">
         <div class="box1">
-            <p id="p1"><a href="">我要买车</a></p>
+            <p id="p1"><router-link to="/buy"><a href="">我要买车</a></router-link></p>
             <ul>
-                <li><a href="">大众</a></li>
-                <li><a href="">本田</a></li>
-                <li><a href="">别克</a></li>
-                <li><a href="">丰田</a></li>
-                <li><a href="">福特</a></li>
-                <li><a href="">日产</a></li>
-                <li><a href="">宝马</a></li>
-                <li><a href="">奔驰</a></li>
-                <li><a href="">现代</a></li>
-                <li><a href="">奥迪</a></li>
-                <li><a href="">雪佛兰</a></li>
-                <li><a href="">吉利</a></li>
-                <li><a href="">哈弗</a></li>
-                <li><a href="">比亚迪</a></li>
-                <li><a href="">3万以下</a></li>
-                <li><a href="">3-5万</a></li>
-                <li><a href="">5-7万</a></li>
-                <li><a href="">7-9万</a></li>
-                <li><a href="">9-12万</a></li>
-                <li><a href="">12-15万</a></li>
-                <li><a href="">15万以上</a></li>
+                <li><router-link to="/buy"><a href="">大众</a></router-link></li>
+                <li><router-link to="/buy"><a href="">本田</a></router-link></li>
+                <li><router-link to="/buy"><a href="">别克</a></router-link></li>
+                <li><router-link to="/buy"><a href="">丰田</a></router-link></li>
+                <li><router-link to="/buy"><a href="">福特</a></router-link></li>
+                <li><router-link to="/buy"><a href="">日产</a></router-link></li>
+                <li><router-link to="/buy"><a href="">宝马</a></router-link></li>
+                <li><router-link to="/buy"><a href="">奔驰</a></router-link></li>
+                <li><router-link to="/buy"><a href="">现代</a></router-link></li>
+                <li><router-link to="/buy"><a href="">奥迪</a></router-link></li>
+                <li><router-link to="/buy"><a href="">雪佛兰</a></router-link></li>
+                <li><router-link to="/buy"><a href="">吉利</a></router-link></li>
+                <li><router-link to="/buy"><a href="">哈弗</a></router-link></li>
+                <li><router-link to="/buy"><a href="">比亚迪</a></router-link></li>
+                <li><router-link to="/buy"><a href="">3万以下</a></router-link></li>
+                <li><router-link to="/buy"><a href="">3-5万</a></router-link></li>
+                <li><router-link to="/buy"><a href="">5-7万</a></router-link></li>
+                <li><router-link to="/buy"><a href="">7-9万</a></router-link></li>
+                <li><router-link to="/buy"><a href="">9-12万</a></router-link></li>
+                <li><router-link to="/buy"><a href="">12-15万</a></router-link></li>
+                <li><router-link to="/buy"><a href="">15万以上</a></router-link></li>
             </ul>
         </div>
         <div class="box2">
-            <p id="p1"><a href="">我要卖车</a></p>
+            <p id="p1"><router-link to="/sell"><a href="">我要卖车</a></router-link></p>
             <div class="s"><input type="text" placeholder="请输入您的手机号" id="t">
                 <input type="button" value="预约卖车" id="btn2" @click="btnClick"></div>
                 <ul id="u1">
