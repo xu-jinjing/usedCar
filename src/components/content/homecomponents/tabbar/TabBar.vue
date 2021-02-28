@@ -31,8 +31,8 @@
             <div class="s"><input type="text" placeholder="请输入您的手机号" id="t">
                 <input type="button" value="预约卖车" id="btn2" @click="btnClick"></div>
                 <ul id="u1">
-                    <li id="l1"><a href="">爱车估价</a></li>
-                    <li><a href="">保卖服务</a></li>
+                    <li id="l1"><router-link to="/sell"><a href="">爱车估价</a></router-link></li>
+                    <li ><router-link to="/sell"><a href="">保卖服务</a></router-link></li>
                 </ul>
         </div>
     </div>
