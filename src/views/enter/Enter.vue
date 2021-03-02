@@ -4,7 +4,7 @@
         <h2>花生三手车</h2>
         <p>用户名：<input type="text" id="name" placeholder="用户名首字母不为数字"><span id="pan"></span></body><br></p>
         <p>密**码：<input type="text" id="password" placeholder="请输入8位密码"><span id="pa"></span><br></p>
-        <p>验证码：<input type="text" id="txt"> <button class="btn" @click="btnClick" >获取验证码</button></p>
+        <p>验证码：<input type="text" id="txt" placeholder="请输入验证码"> <button class="btn" @click="btnClick" >获取验证码</button></p>
         
         
         <p class="sub-btn"><button class="btn2"  type="submit" @click="btn2Click">一键注册并登录</button></p>
@@ -36,6 +36,9 @@
           }
           arr[i]=String.fromCharCode(code);
         }
+        // console.log(arr);
+        // alert(arr.splice(0,4))
+        // 在文本框中输入验证码
       document.getElementById("txt").value=arr.join("");
       },
 
@@ -63,8 +66,7 @@
             document.getElementById("pan").style.color = "red";
            
         }else{
-            document.getElementById("pan").innerHTML = "用户名输入正确";
-            document.getElementById("pan").style.color = "green";
+            document.getElementById("pan").innerHTML = "";
             
         }
         let password=document.getElementById("password").value;
@@ -73,13 +75,13 @@
             document.getElementById("pa").style.color = "red";
             return;
         }else{
-            document.getElementById("pa").innerHTML = "密码输入正确";
-            document.getElementById("pa").style.color = "green";
+            document.getElementById("pa").innerHTML = "";
             
         }
 
         let yzm = document.getElementById("txt").value;
-        if(yzm.length != 0){
+
+        if(document.getElementById("txt").value != 0){
           document.getElementById("txt").style.color = "black";
           return;
         }else{
