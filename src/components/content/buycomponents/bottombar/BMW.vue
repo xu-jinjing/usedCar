@@ -9,7 +9,7 @@
         <div id="d1">
             <div class="box" id="box">
                 <dl>
-                    <dt><a href=""><img src="../../../../assets\img\swiper\1.jpg"/></a></dt>
+                    <dt><a href=""><img src="../../../../assets/img/swiper/1.jpg"/></a></dt>
                     <dd>
                        <h3>hagsjhgaf</h3>
                         <br/>
@@ -18,7 +18,7 @@
             </div>
             <div class="box" id="box">
                 <dl>
-                    <dt><a href="#"><img src="../../../../assets\img\swiper\1.jpg"/></a></dt>
+                    <dt><a href="#"><img src="../../../../assets/img/swiper/6.jpg"/></a></dt>
                     <dd>
                        <h3></h3>
                         <br/>
@@ -374,7 +374,7 @@
             .waist ul li a{color: gray;}
             .waist ul li a:hover{color: black;}
             .box dt img{margin-top: 0; width: 280px; height: 190px;}
-            .box dd{margin: 0 70px; text-align: center;}
+            .box dd{margin: 0 1px; text-align: center;}
             .box{width: 280px;height: 260px;margin: 15px;float: left;background-color: aqua; }
             #d2 .box{width: 280px;height: 260px;margin: 15px;float: left;background-color: rgb(105, 127, 228);}
             #d3 .box{width: 280px;height: 260px;margin: 15px;float: left;background-color: rgb(50, 207, 121);}
