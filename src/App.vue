@@ -2,6 +2,9 @@
   <div id="app">
       <div class="nav-bar">
       <div class="header" id="header">
+        <p class="left" id="p1">
+		      <my-clock></my-clock>
+        </p>
          <ul>
             <li class="login"><router-link to="/enter">|  登录</router-link></li>
             <li class="dh">热线电话：8888-8888</li> 
@@ -18,10 +21,13 @@
 
 <script>
 
+import MyClock from '../src/components/common/MyClock'
+
 export default {
   name: 'App',
   components: {
-  }
+    MyClock
+			}
 }
 </script>
 
@@ -30,8 +36,8 @@ export default {
    *{margin: 0;padding: 0;}
     *{list-style-type: none;}
     a{text-decoration: none;color: white;}
-    .header{width: 100%;height:80px ;background-color:rgb(15, 15, 15);position: relative;}
-    .header li{float: left;height: 80px; line-height: 80px;padding-left: 10px;
+    .header{width: 100%;height:100px ;background-color:rgb(15, 15, 15);position: relative;}
+    .header li{float: left;height: 100px; line-height: 100px;padding-left: 10px;
     padding-right:10px;margin-right: 25px;} 
     .header a:hover{font-weight: bold;color: blueviolet;}
     .header .dh{width: 230px;}
@@ -43,5 +49,8 @@ export default {
       width: 80px;
     }
 
+    .left{
+      float: left;
+    }
     
 </style>

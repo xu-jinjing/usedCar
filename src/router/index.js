@@ -37,6 +37,10 @@ const VW2 = () => import('../components/content/buycomponents/goods/VW2.vue')
 const VW21 = () => import('../components/content/buycomponents/goods/VW21.vue')
 const VW22 = () => import('../components/content/buycomponents/goods/VW22.vue')
 
+const HMC1 = () => import('../components/content/buycomponents/goods/HMC1.vue')
+const HMC21 = () => import('../components/content/buycomponents/goods/HMC21.vue')
+const HMC31 = () => import('../components/content/buycomponents/goods/HMC31.vue')
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -169,6 +173,18 @@ const routes = [
   {
     path: '/VW22',
     component: VW22
+  },
+  {
+    path: '/HMC1',
+    component: HMC1
+  },
+  {
+    path: '/HMC21',
+    component: HMC21
+  },
+  {
+    path: '/HMC31',
+    component: HMC31
   },
 ]
 
