@@ -5,6 +5,7 @@ const Home = () => import('../views/home/Home.vue')
 const Buy = () => import('../views/buy/Buy.vue')
   const Every = () => import('../components/content/buycomponents/bottombar/Every.vue')
   const VW = () => import('../components/content/buycomponents/bottombar/VWdazhong.vue')
+
   const HMC = () => import('../components/content/buycomponents/bottombar/HMCbentian.vue')
   const Buick = () => import('../components/content/buycomponents/bottombar/Buick.vue')
   const Toyota = () => import('../components/content/buycomponents/bottombar/ToyotaFengtian.vue')
@@ -30,6 +31,11 @@ const Buy = () => import('../views/buy/Buy.vue')
 const Sell = () => import('../views/sell/Sell.vue')
 const Service = () => import('../views/service/Service.vue')
 const Enter = () => import('../views/enter/Enter.vue')
+
+const VW1 = () => import('../components/content/buycomponents/goods/VW1.vue')
+const VW2 = () => import('../components/content/buycomponents/goods/VW2.vue')
+const VW21 = () => import('../components/content/buycomponents/goods/VW21.vue')
+const VW22 = () => import('../components/content/buycomponents/goods/VW22.vue')
 
 Vue.use(VueRouter)
 
@@ -147,7 +153,23 @@ const routes = [
   {
     path:'/enter',
     component: Enter
-  }
+  },
+  {
+    path: '/VW1',
+    component: VW1
+  },
+  {
+    path: '/VW2',
+    component: VW2
+  },
+  {
+    path: '/VW21',
+    component: VW21
+  },
+  {
+    path: '/VW22',
+    component: VW22
+  },
 ]
 
 const router = new VueRouter({

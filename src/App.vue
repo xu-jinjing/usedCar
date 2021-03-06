@@ -18,13 +18,15 @@
 
 <script>
 
-
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+  }
 }
 </script>
 
 <style scoped>
+    /* @import "./assets/css/base"; */
    *{margin: 0;padding: 0;}
     *{list-style-type: none;}
     a{text-decoration: none;color: white;}
@@ -40,4 +42,6 @@ export default {
     .login{
       width: 80px;
     }
+
+    
 </style>
