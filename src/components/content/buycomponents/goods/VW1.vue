@@ -20,17 +20,20 @@
       <img src="../../../../assets/img/goodsimg/VW//VW1img/bottom.png" alt="">
       <img src="../../../../assets/img/goodsimg/VW//VW1img/bottom2.png" alt="">
     </div>
+    <vw-album></vw-album>
   </div>
 </template>
 
 <script>
 
   import Vw1Swiper from '../goods/goodSwiper/VW1swiper'
+  import VwAlbum from '@/components/content/buycomponents/goods/goodsAlbum/VwAlbum'
 
   export default {
     name:"VW1", 
     components: {
-      Vw1Swiper
+      Vw1Swiper,
+      VwAlbum
     },
     methods: {
       btn1Click(){

@@ -9,11 +9,13 @@
             <li class="login"><router-link to="/enter">|  登录</router-link></li>
             <li class="dh">热线电话：8888-8888</li> 
             <li><router-link to="/service">服务</router-link></li>
+            <li><router-link to="/Cart">购物</router-link></li>
              <li><router-link to="/sell">我要卖车</router-link></li>
              <li><router-link to="/buy">我要买车</router-link></li>
              <li><router-link to="/home">首页</router-link></li>
          </ul>
     </div>
+    <back-top></back-top>
   </div>
     <router-view></router-view>
   </div>
@@ -22,12 +24,22 @@
 <script>
 
 import MyClock from '../src/components/common/MyClock'
+import BackTop from '../src/components/common/backtop/BackTop'
 
 export default {
   name: 'App',
   components: {
-    MyClock
-			}
+    MyClock,
+    BackTop
+	},
+  data () {
+    return {
+    }
+  },
+  methods: {
+  }
+
+
 }
 </script>
 
@@ -51,6 +63,8 @@ export default {
 
     .left{
       float: left;
+      margin-left: 50px;
+      margin-top: 2px;
     }
     
 </style>

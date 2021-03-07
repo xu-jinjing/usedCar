@@ -21,17 +21,20 @@
       <img src="../../../../assets/img/goodsimg/VW/VW1img/bottom.png" alt="">
       <img src="../../../../assets/img/goodsimg/VW/VW1img/bottom2.png" alt="">
     </div>
+    <vw-ablum21></vw-ablum21>
   </div>
 </template>
 
 <script>
 
   import Vw21Swiper from '../goods/goodSwiper/VW21swiper'
+  import VwAblum21 from '@/components/content/buycomponents/goods/goodsAlbum/VwAblum21'
 
   export default {
     name:"VW2", 
     components: {
-      Vw21Swiper
+      Vw21Swiper,
+      VwAblum21
     },
     methods: {
       btn1Click(){

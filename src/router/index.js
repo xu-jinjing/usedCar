@@ -27,7 +27,7 @@ const Buy = () => import('../views/buy/Buy.vue')
     const TWtFIF = () => import('../components/content/buycomponents/price/TwelveToFifteen.vue')
     const FIF = () => import('../components/content/buycomponents/price/Fifteen.vue')
 
-
+const Cart = () => import('../views/cart/Cart.vue')
 const Sell = () => import('../views/sell/Sell.vue')
 const Service = () => import('../views/service/Service.vue')
 const Enter = () => import('../views/enter/Enter.vue')
@@ -149,6 +149,10 @@ const routes = [
   {
     path:'/sell',
     component: Sell
+  },
+  {
+    path:'/Cart',
+    component: Cart
   },
   {
     path:'/service',

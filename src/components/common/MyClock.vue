@@ -1,6 +1,6 @@
 
 <template>
-  <clock size="100px" color="#FFFFFF" bg="#4AB7BD"></clock>
+  <clock size="92px" color="#FFFFFF" bg="#4AB7BD"></clock>
 </template>
  
 <script>
