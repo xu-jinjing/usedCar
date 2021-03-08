@@ -1,12 +1,26 @@
 <template>
     <div id="app">
-    <div v-if="books.length" >
+      <div  id="goods">
+        <div v-for="(good,index) in goods" id="good">
+          <dl>
+          <dt><img :src="good.imgUrl"></dt>
+          <dd>
+            <span id="p1">{{good.name}}</span>
+            <span id="p2">￥{{good.price}}</span>
+            <button id="btn" @click="pushHandel(index)">加入购物车</button>
+          </dd>
+        </dl>
+        
+        </div>
+
+      </div>
+    <div v-if="books.length" class="cart">
+      <h1>购物车</h1>
     <table>
       <thead>
         <tr>
           <th></th>
-          <th>书籍名称</th>
-          <th>出版日期</th>
+          <th>商品名称</th>
           <th>价格</th>
           <th>购买数量</th>
           <th>操作</th>
@@ -16,7 +30,6 @@
         <tr v-for="(item,index) in books">
           <td>{{item.id}}</td>
           <td>{{item.name}}</td>
-          <td>{{item.date}}</td>
           <td>{{item.price | showPrice}}</td>
           <td>
             <button @click="decrement(index)" v-bind:disabled="item.count <=0">-</button>
@@ -27,66 +40,147 @@
         </tr>
       </tbody>
   </table>
- <h2>总价格：{{totalPrice | showPrice}}</h2>
+    <div id="allPrice">
+      <h1>总价格：{{totalPrice | showPrice}}</h1><button id="btn2">立即结算</button>
     </div>
-    <h2 v-else>购物车为空</h2>
+
+    </div>
+    <div v-else class="null">
+      <h1>购物车</h1>
+      <h2 >购物车为空</h2>
+    </div>
+      
   </div>
 </template>
 
 <script>
   export default {
-    name:"", 
+    name:"Cart", 
     data () {
       return {
-        books:[
-      {
-        id:1,
-        name:'《算法导论》',
-        date:'2006-9',
-        price:85.50,
-        count:0,
-      },
-      {
-        id:2,
-        name:'《Unix编程艺术》',
-        date:'2008-9',
-        price:98.00,
-        count:0,
-      },
-      {
-        id:3,
-        name:'《编程珠玑》',
-        date:'2003-9',
-        price:59.00,
-        count:0,
-      },
-      {
-        id:4,
-        name:'《代码大全》',
-        date:'2002-9',
-        price:39.00,
-        count:0,
-      },
-      {
-        id:1,
-        name:'《算法导论》',
-        date:'2004-9',
-        price:128.00,
-        count:0,
-      },
-    ],
+        books:[],
+        goods:[
+          {
+            id:1,
+            imgUrl:'https://tse2-mm.cn.bing.net/th/id/OIP.wI3t0kHCYZsuDXJ42R7afQHaHa?w=176&h=180&c=7&o=5&pid=1.7',
+            name:'车载吸尘器',
+            price:19.9,
+            count:1,
+          },
+          {
+            id:2,
+            imgUrl:'https://tse1-mm.cn.bing.net/th/id/OIP.LwfzciSVbIKintaxs1-nVQHaE2?w=274&h=180&c=7&o=5&pid=1.7',
+            name:'汽车盖布',
+            price:12.82,
+            count:1,
+          },
+          {
+            id:3,
+            imgUrl:'../../assets/img/cartimg/1.jpg',
+            name:'汽车盖布',
+            price:12.82,
+            count:1,
+          },
+          {
+            id:4,
+            imgUrl:"../../assets/img/backtop/backTop.jpg",
+            name:'汽车盖布',
+            price:12.82,
+            count:1,
+          },
+          {
+            id:5,
+            imgUrl:"../../assets/img/backtop/backTop.jpg",
+            name:'汽车盖布',
+            price:12.82,
+            count:1,
+          },
+          {
+            id:6,
+            imgUrl:"../../assets/img/backtop/backTop.jpg",
+            name:'汽车盖布',
+            price:12.82,
+            count:1,
+          },
+          {
+            id:7,
+            imgUrl:"../../assets/img/backtop/backTop.jpg",
+            name:'汽车盖布',
+            price:12.82,
+            count:1,
+          },
+          {
+            id:8,
+            imgUrl:"../../assets/img/backtop/backTop.jpg",
+            name:'汽车盖布',
+            price:12.82,
+            count:1,
+          },
+          {
+            id:9,
+            imgUrl:"../../assets/img/backtop/backTop.jpg",
+            name:'汽车盖布',
+            price:12.82,
+            count:1,
+          },
+          {
+            id:10,
+            imgUrl:"../../assets/img/backtop/backTop.jpg",
+            name:'汽车盖布',
+            price:12.82,
+            count:1,
+          },
+          {
+            id:11,
+            imgUrl:"../../assets/img/backtop/backTop.jpg",
+            name:'汽车盖布',
+            price:12.82,
+            count:1,
+          },
+          {
+            id:12,
+            imgUrl:"../../assets/img/backtop/backTop.jpg",
+            name:'汽车盖布',
+            price:12.82,
+            count:1,
+          },
+          {
+            id:13,
+            imgUrl:"../../assets/img/backtop/backTop.jpg",
+            name:'汽车盖布',
+            price:12.82,
+            count:1,
+          },
+          {
+            id:14,
+            imgUrl:"../../assets/img/backtop/backTop.jpg",
+            name:'汽车盖布',
+            price:12.82,
+            count:1,
+          },
+          {
+            id:15,
+            imgUrl:"../../assets/img/backtop/backTop.jpg",
+            name:'汽车盖布',
+            price:12.82,
+            count:1,
+          },
+        ]
       }
     },
   methods: {
-   increment(index){
+    increment(index){
      this.books[index].count++
-   },
-   decrement(index){
-    this.books[index].count--
-   },
-   removeHandel(index){
+    },
+    decrement(index){
+     this.books[index].count--
+    },
+    removeHandel(index){
      this.books.splice(index,1)
-   }
+    },
+    pushHandel(index){
+      this.books.push(this.goods[index]) 
+    }
   },
   computed: {
     totalPrice(){
@@ -102,28 +196,105 @@
   } 
   
 }
-const num=[12,456,23,78,878,223,55,88,99,]
 
-let total=num.filter(n => n<100).map(n => n*2).reduce((pre,n) => pre+n)
-console.log(total);
   
 </script>
 <style scoped>
+  
   table{
   border: 1px solid #e9e9e9;
   border-collapse: collapse;
   border-spacing: 0;
+  width: 900px;
+  margin: 0 auto;
+  }
 
-}
-th,td{
-  padding: 8px 16px;
+  #allPrice{
+    margin-left: 300px;
+    margin-bottom: 200px;
+  }
+  th,td{
+  padding: 8px 55px;
   border: 1px solid #e9e9e9;
-}
+  }
 
-th{
+  th{
   background: #f7f7f7;
   color: #5c6b77;
   font-weight: 600;
-}
+  }
 
+  #goods{
+  width: 100%;
+  height: 800px;
+  display: flex;
+  flex-flow: wrap;
+  }
+
+  dl{
+  width: 180px;
+  height: 200px;
+  background-color: rgb(231, 225, 225);
+  flex: 1;
+  border: 1px black solid;
+  margin-left: 70px;
+  padding: 10px 0;
+  position: relative;
+  }
+  dl img{
+    width: 180px;
+    height: 130px;
+  }
+
+  dl #p1{
+    position: absolute;
+    left: 10px;
+    font-weight: 400;
+  }
+  dl #p2{
+    position: absolute;
+    right: 20px;
+    color: orangered;
+  }
+  #btn{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 180px;
+    height: 40px;
+  }
+
+  .cart{
+    width: 1000px;
+    margin: 100px auto;
+    position: relative;
+    padding-bottom: 300px;
+  }
+  .cart h1{
+    font-size: 36px;
+    text-align: center;
+  }
+  .null{
+    width: 900px;
+    height: 500px;
+    margin: 100px auto;
+  }
+  .null h1{
+    font-size: 36px;
+    text-align: center;
+  }
+  #allPrice{
+    position: absolute;
+    right: 50px;
+  }
+  #btn2{
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    right: 60px;
+    background-color:rgb(214, 66, 8);
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+  }
 </style>

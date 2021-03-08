@@ -13,6 +13,7 @@
     "less-loader": "^5.0.0",
     "node-sass": "^4.14.1",
     "swiper": "^6.4.15",
+    "url-loader": "^4.1.1",
     "vue": "^2.6.11",
     "vue-awesome-swiper": "^2.6.7",
     "vue-clock2": "^1.1.5",
