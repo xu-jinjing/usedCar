@@ -21,12 +21,15 @@
   },
   methods: {
     handleScroll() {
+      // console.log(document.documentElement.scrollTop);
+      // console.log(document.body.scrollTop);
        let scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
       scrolltop > 260 ? (this.isShowBackTop = true) : (this.isShowBackTop = false);
     },
     backClick() {
       
       let top = document.documentElement.scrollTop || document.body.scrollTop;
+      
       // 实现滚动效果 
       const timeTop = setInterval(() => {
         document.body.scrollTop = document.documentElement.scrollTop = top -= 50;

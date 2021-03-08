@@ -7,10 +7,10 @@
         </div>
         <div class="p1">
             <img src="../../../../../assets/img/goodsimg/VW/VW13img/3.jpg" >
-            <p><img src="../../../../../assets/img/goodsimg/VW/VW13img/4.jpg"></p>
+            <p><img src="../../../../../assets/img/goodsimg/VW/VW13img/5.jpg"></p>
         </div>
         <div class="p1">
-            <img src="../../../../../assets/img/goodsimg/VW/VW13img/5.jpg" >
+            <img src="../../../../../assets/img/goodsimg/VW/VW13img/4.jpg" >
             <p><img src="../../../../../assets/img/goodsimg/VW/VW13img/6.jpg"></p>
         </div>
     </div>
