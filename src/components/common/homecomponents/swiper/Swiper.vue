@@ -24,7 +24,7 @@
         swiperList:[
           {
             id:'001',
-            imgUrl: require('../../../../assets/img/swiper/1.jpg')
+            imgUrl: require('../../../../assets/img/swiper/5.jpg')
           },
           {
             id:'002',
@@ -40,7 +40,7 @@
           },
           {
             id:'005',
-            imgUrl: require('../../../../assets/img/swiper/5.jpg')
+            imgUrl: require('../../../../assets/img/swiper/1.jpg')
           },
           {
             id:'006',

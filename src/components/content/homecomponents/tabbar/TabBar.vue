@@ -35,16 +35,40 @@
                     <li ><router-link to="/sell"><a href="">保卖服务</a></router-link></li>
                 </ul>
         </div>
+        <modal v-show="isShow" :title="title"  @hideModal="hideModal" @submit="submit">
+          <h3>预约成功，正在通知最近工作人员与您联系验车</h3>
+        </modal>
     </div>
 </template>
 
 <script>
+
+  import Modal from '@/components/common/Modal'
+
   export default {
     name:"TabBar", 
+    components: {
+      Modal
+    },
+    data () {
+      return {
+        title:'提示页面',
+        isShow: false,
+      }
+    },
     methods: {
       btnClick(){
-        alert("预约成功,请等待官方来电")
-      }
+        this.isShow = true
+      },
+      hideModal() {
+            // 取消弹窗回调
+            this.isShow = false
+        },
+
+        submit() {
+            // 确认弹窗回调
+            this.isShow = false
+        },
     }
   }
 </script>
@@ -62,11 +86,14 @@
     .nav .box2{width: 30%;height: 260px;float: left;background-color: aliceblue;position: relative;}
         .box2 .s{position: absolute;left: 10px;top: 80px;}
         #t{width: 250px;height: 40px;}
-        #btn2{height: 42px;width: 100px;background-color: rgb(26, 235, 60);}
+        #btn2{height: 42px;width: 100px;background-color: rgb(26, 235, 60);font-size: 16px;}
         #u1{position: absolute;top: 180px;left: 100px;border: 1px rgb(14, 173, 9) solid;
         background-color: rgb(210, 226, 210);}
         #u1 li{float: left;width: 80px;margin: 10px;}
         #u1 li a{color: green;}
         #u1 li a:hover{font-weight: bold;}
         #u1 #l1{border-right: 1px rgb(14, 173, 9) solid;}
+        #t{
+          font-size: 18px;
+        }
 </style>
