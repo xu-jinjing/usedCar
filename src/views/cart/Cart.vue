@@ -60,7 +60,7 @@
     </div>
     <div v-else class="null">
       <h1>购物车</h1>
-      <h2 >购物车购物车中还没有宝贝，快去挑选喜欢的宝贝吧</h2>
+      <h2 >购物车中还没有宝贝，快去挑选喜欢的宝贝吧</h2>
     </div>
       
   </div>
@@ -264,7 +264,7 @@
 <style scoped>
   
   #app{
-    background: url("https://tse4-mm.cn.bing.net/th/id/OIP.oTseqBQCTYiA4OGdEOCBOgHaF8?w=241&h=193&c=7&o=5&pid=1.7") no-repeat ;
+    background: url("http://img.netbian.com/file/2017/0615/cfcabff2c942c746c4557d149526fad9.jpg") no-repeat ;
     background-size: cover;
   }
 
@@ -280,13 +280,17 @@
     margin-left: 300px;
     margin-bottom: 200px;
   }
+  #allPrice h1{
+    color: rgb(255, 102, 0);
+  }
   th,td{
   padding: 8px 55px;
   border: 1px solid #e9e9e9;
+  background-color: #fff;
   }
 
   th{
-  background: #f7f7f7;
+  background: #dfdbdb;
   color: #5c6b77;
   font-weight: 600;
   }
@@ -345,14 +349,18 @@
     text-align: center;
   }
   .null{
-    width: 900px;
-    height: 500px;
+    width: 100%;
+    height: 260px;
     margin: 100px auto 0;
-    border: 1px rgb(95, 91, 91) solid;
+    padding-top: 66px;
+    /* border: 1px rgb(95, 91, 91) solid; */
+    background: url('http://img.netbian.com/file/2017/0615/cfcabff2c942c746c4557d149526fad9.jpg') no-repeat;
+    background-size: cover;
   }
   .null h1{
     font-size: 36px;
     text-align: center;
+
   }
   .null h2{
     text-align: center;

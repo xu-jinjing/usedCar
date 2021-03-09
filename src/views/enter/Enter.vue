@@ -2,12 +2,14 @@
   <div class="enter">
     <div class="login">
         <h2>花生三手车</h2>
-        <p>用户名：<input type="text" id="name" placeholder="用户名首字母不为数字"><span id="pan"></span></body><br></p>
-        <p>密**码：<input type="text" id="password" placeholder="请输入8位密码"><span id="pa"></span><br></p>
-        <p>验证码：<input type="text" id="txt" placeholder="请输入验证码"> <button class="btn" @click="btnClick" >获取验证码</button></p>
+        <p class="p">用户名：<input type="text" id="name" placeholder="用户名首字母不为数字"><span id="pan"></span></body><br></p>
+        <p class="p">密**码：<input type="text" id="password" placeholder="请输入8位密码"><span id="pa"></span><br></p>
+        <p class="p">验证码：<input type="text" id="txt" placeholder="请输入验证码"> <button class="btn" @click="btnClick" >获取验证码</button></p>
         
         
-        <p class="sub-btn"><button class="btn2"  type="submit" @click="btn2Click">一键注册并登录</button></p>
+        <p class="sub-btn">
+          <button class="btn2"  type="submit" @click="btn2Click">一键注册并登录</button>
+        </p>
         <p class="free-phone">免费咨询8888-8888</p>
         <p class="agree-text">登录即视为同意
           <a href="https://image.guazistatic.com/gz01190926/17/21/21c7f57e0f6b77e4b7dd3b608e44d04f.pdf" target="_blank" data-gzlog="92392518">《用户使用协议》</a>
@@ -21,7 +23,6 @@
 
 <script>
 
-  import rand from '../enter/enter'
 
   export default {
     name:"Enter", 
@@ -101,22 +102,43 @@
   .enter{
     width: 100%;
     height: 480px;
-    background-color:aquamarine;
+    background: url('http://img.netbian.com/file/2016/1116/8e657a97abfbcff869f48216cb28e4f0.jpg');
+    background-size: cover;
     padding: 50px;
+    padding-left: 0;
   }
   .login{
     width: 50%;
-    height: 70%;
+    height: 75%;
     margin: 0 auto;
     margin-top: 50px;
     font-family: '微软雅黑';
     font-size: 22px;
-    background-color: rgb(107, 138, 224);
+    background-color: rgb(237, 241, 250);
     padding-left: 26px;
     padding-bottom: 50px;
+    position: relative;
+  }
+  .login p{
+    margin-left: 50px;
+  }
+  .login .p{
+    font-size: 25px;
+  }
+  .login .p input{
+    width: 230px;
+    height: 25px;
+    font-size: 16px;
+  }
+  
+  .login h2{
+    text-align: center;
   }
   .btn{
-    margin-left: 10px;
+    margin-left: 20px;
+    height: 30px;
+    width: 100px;
+
   }
 
   .sub-btn{
@@ -127,5 +149,6 @@
     width: 140px;
     height: 36px;
     font-size: 17px;
+    margin-left: 75px;
   }
 </style>

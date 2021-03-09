@@ -80,6 +80,7 @@
     height: 460px;
     background: url('https://wallpaperm.cmcm.com/b6fa4e1721ac2dcf5b5f1be3cfdc68e3.jpg') no-repeat;
     background-size: cover;
+    margin-top: -25px;
   }
 
   .h1{

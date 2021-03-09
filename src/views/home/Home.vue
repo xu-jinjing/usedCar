@@ -3,15 +3,12 @@
     <home-swiper></home-swiper>
     <tab-bar></tab-bar>
     <bottom-bar></bottom-bar>
-    <!-- <common-bottom-bar></common-bottom-bar> -->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 
 import HomeSwiper from '@/components/common/homecomponents/swiper/Swiper'
-// import CommonBottomBar from '@/components/common/commonbottombar/CommonBottomBar'
 
 import TabBar from '@/components/content/homecomponents/tabbar/TabBar'
 import BottomBar from '@/components/content/homecomponents/bottombar/BottomBar'
@@ -24,7 +21,6 @@ export default {
     HomeSwiper,
     TabBar,
     BottomBar,
-    // CommonBottomBar
   }
 }
 </script>
