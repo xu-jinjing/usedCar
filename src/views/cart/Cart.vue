@@ -264,7 +264,7 @@
 <style scoped>
   
   #app{
-    background: url("http://img.netbian.com/file/2017/0615/cfcabff2c942c746c4557d149526fad9.jpg") no-repeat ;
+    background: url("../../assets/img/cart/cartBackground.jpg") no-repeat ;
     background-size: cover;
   }
 
@@ -354,7 +354,7 @@
     margin: 100px auto 0;
     padding-top: 66px;
     /* border: 1px rgb(95, 91, 91) solid; */
-    background: url('http://img.netbian.com/file/2017/0615/cfcabff2c942c746c4557d149526fad9.jpg') no-repeat;
+    background: url('../../assets/img/cart/cartBackground.jpg') no-repeat;
     background-size: cover;
   }
   .null h1{

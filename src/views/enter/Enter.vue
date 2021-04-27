@@ -91,6 +91,10 @@
           document.getElementById("txt").value = "请输入四位验证码";
           document.getElementById("txt").style.color = "red";
         }
+
+        // if(name || password || yzm){
+        //   this.$router.push('/home')
+        // }
       }
      
     },
@@ -102,7 +106,7 @@
   .enter{
     width: 100%;
     height: 480px;
-    background: url('http://img.netbian.com/file/2016/1116/8e657a97abfbcff869f48216cb28e4f0.jpg');
+    background: url('../../assets/img/enter/enter.jpg');
     background-size: cover;
     padding: 50px;
     padding-left: 0;

@@ -30,7 +30,7 @@ const Buy = () => import('../views/buy/Buy.vue')
 const Cart = () => import('../views/cart/Cart.vue')
 const Sell = () => import('../views/sell/Sell.vue')
 const Service = () => import('../views/service/Service.vue')
-const Enter = () => import('../views/enter/Enter.vue')
+const Enter = () => import('../views/enter/Login.vue')
 
 const VW1 = () => import('../components/content/buycomponents/goods/VW1.vue')
 const VW2 = () => import('../components/content/buycomponents/goods/VW2.vue')
