@@ -1,6 +1,6 @@
 <template>
   <div class="waist" id="waist">
-        <p><h1>热卖车型</h1></p>
+    <p><h1>热卖车型</h1></p>
         <ul>
             <li id="one" @click="oneClick">全部</li>
             <li id="two" @click="twoClick">付三成</li>

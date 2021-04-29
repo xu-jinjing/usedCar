@@ -35,41 +35,21 @@
                 <li><router-link to="/buy/15万以上">15万以上</router-link></li>
             </ul>
         </div>
-        <!-- <div class="box3">
-            <ul>
-                <li>车系</li>
-                <li><a href="">不限</a></li>
-                <li><a href="">大众</a></li>
-                <li><a href="">本田</a></li>
-                <li><a href="">别克</a></li>
-                <li><a href="">丰田</a></li>
-                <li><a href="">福特</a></li>
-                <li><a href="">日产</a></li>
-                <li><a href="">宝马</a></li>
-                <li><a href="">奔驰</a></li>
-                <li><a href="">现代</a></li>
-            </ul>
-        </div> -->
         <router-view></router-view>
    </div>
-   
-<!-- <bottom-bar></bottom-bar> -->
 </div>
 </template>
 
 <script>
 
-  // import BottomBar from '../../components/content/buycomponents/bottombar/BottomBar'
-
   export default {
     name:"Buy", 
     components: {
-      // BottomBar,
     },
      activated () {
     this.$router.push(this.path)
   },
-  //组件内守卫
+  // //组件内守卫
   beforeRouteLeave (to, from, next) {
   this.path = this.$route.path
   next()
