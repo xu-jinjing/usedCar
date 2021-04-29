@@ -98,8 +98,8 @@ export default {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -191px;
-    margin-left: -160px;
+    margin-top: -13%;
+    margin-left: -10%;
   }
 
   .back{

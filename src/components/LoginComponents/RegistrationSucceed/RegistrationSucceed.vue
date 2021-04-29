@@ -20,6 +20,7 @@ export default{
       if (second >= 0) {
         jump.innerHTML = second + '秒后跳转登录页';
       } else {
+        location.reload();
         clearInterval(checkTime);
         second = 3;
       }
@@ -39,7 +40,7 @@ export default{
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -150px;
+  margin-top: -180px;
   margin-left: -210px;
 }
 

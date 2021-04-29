@@ -10,7 +10,12 @@
       <img class="huohua-icon" src="../../../assets/img/login/logo.png"/>
     </div>
 <!--    账号输入框-->
-    <input class="input" :class="{accountActive: accountActive}" id="phone-text" type="text" placeholder="请输入手机号" v-on:blur="phoneBlur()" :maxlength="13" v-on:focus="phoneFocus()">
+    <input class="input" :class="{accountActive: accountActive}" id="phone-text" type="text" placeholder="请输入手机号" v-on:blur="phoneBlur()" :maxlength="13" v-on:focus="phoneFocus()" onkeyup="this.value=this.value.replace(/\s+/g,'')">
+<!--    图形验证码输入框-->
+    <div v-if="imgcodeShow">
+      <input class="input" :class="{imgcodeActive: imgcodeActive}" id="imgcode-text" type="text" placeholder="请输入图形验证码" @blur="imgCodeBlur()" @focus="imgCodeFoucs()">
+      <img src="" class="code-img" @click="imgCode()">
+    </div>
 <!--    验证码输入框-->
     <input class="input" :class="{codeActive: codeActive}" id="code-text" type="text" placeholder="请输入验证码" v-on:blur="codeBlur()" v-on:focus="codeFocus()">
 <!--    获取验证码-->
@@ -43,7 +48,11 @@ export default{
       // 焦点在密码框中样式
       passwordActive : false,
       // 焦点在图形验证码框中样式
-      codeActive : false
+      codeActive : false,
+      // 焦点在图形验证码框中样式
+      imgcodeActive : false,
+      // 图形验证码的显示隐藏
+      imgcodeShow : false
     }
   },
   components:{
@@ -53,6 +62,11 @@ export default{
     // 焦点在账号框中时，边框颜色变化
     phoneFocus() {
       this.accountActive = true;
+    },
+
+    // 焦点在图形验证码框中
+    imgCodeFoucs() {
+      this.imgcodeActive = true;
     },
 
     // 焦点在验证码框时
@@ -76,6 +90,19 @@ export default{
         newphone.splice(8, 0, ' ');
         phone.value = newphone.join('');
       }
+      if (this.accountVerify() === true) {
+        this.imgcodeShow = true;
+      }
+    },
+
+    // 图形验证码框失焦
+    imgCodeBlur() {
+      this.imgcodeActive = false;
+    },
+
+    // 点击图形验证码
+    imgCode() {
+      console.log('验证码');
     },
 
     // 验证码框失去焦点时
@@ -90,30 +117,40 @@ export default{
 
     // 点击获取验证码
     getVlCode() {
-      let second = 60;
-      // let time = 0;
-      const getViCode = document.getElementById('fetch-code');
-      getViCode.innerHTML = second + '秒后可重发';
-      getViCode.style.color = '#999999';
-      const timeKeeping = setInterval(function () {
-        second--;
-        if (second > 0) {
-          getViCode.innerHTML = second + '秒后可重发';
-          getViCode.style.pointerEvents = 'none';
-        } else {
-          clearInterval(timeKeeping);
-          getViCode.innerHTML = '重新获取验证码';
-          getViCode.style.pointerEvents = 'auto';
-          getViCode.style.color = '#FE5702';
-          second = 60;
-        }
-      }, 1000);
+      if (this.accountVerify() === true && this.imgCodeVerify() === true) {
+        this.imgcodeShow = true;
+        let second = 60;
+        const getViCode = document.getElementById('fetch-code');
+        getViCode.innerHTML = second + '秒后可重发';
+        getViCode.style.color = '#999999';
+        const timeKeeping = setInterval(function () {
+          second--;
+          if (second > 0) {
+            getViCode.innerHTML = second + '秒后可重发';
+            getViCode.style.pointerEvents = 'none';
+          } else {
+            clearInterval(timeKeeping);
+            getViCode.innerHTML = '重新获取验证码';
+            getViCode.style.pointerEvents = 'auto';
+            getViCode.style.color = '#FE5702';
+            second = 60;
+          }
+        }, 1000);
+      } else {
+        const error = document.getElementById('checkonline');
+        error.innerHTML = '请按顺序操作';
+      }
     },
 
     // 点击注册按钮
     registration() {
       // 调用账号验证
       if (this.accountVerify() === false) {
+        return;
+      }
+      this.imgcodeShow = true;
+      // 调用图形验证码验证
+      if (this.imgCodeVerify() === false) {
         return;
       }
 
@@ -210,6 +247,27 @@ export default{
       return true;
     },
 
+    // 3 图片验证码验证
+    imgCodeVerify() {
+      const imgCode = document.getElementById('imgcode-text');
+      const error = document.getElementById('checkonline');
+
+      // (1) 图形验证码为空
+      if (imgCode.value === '') {
+        error.innerHTML = '请输入图形验证码';
+        return false;
+      }
+
+      // (2) 四位验证码
+      if (imgCode.value.length !== 4) {
+        error.innerHTML = '请输入正确图形验证码';
+        return false;
+      }
+      // 不满足以上条件，验证成功
+      error.innerHTML = '';
+      return true;
+    },
+
 
     // 点击已有账号 登录
     goLogin() {
@@ -266,8 +324,8 @@ button.active.focus {
   border-radius: 6px;
   top: 50%;
   left: 50%;
-  margin-left: -160px;
-  margin-top: -190px;
+  margin-left: -10%;
+  margin-top: -13%;
 }
 .huohuaschool-img{
   width: 284px;
@@ -304,9 +362,22 @@ button.active.focus {
   padding-left: 18px;
 }
 
-.accountActive,.passwordActive,.codeActive{
+.accountActive,.imgcodeActive,.codeActive{
   border: 1px solid #FE5702 !important;
   background-color: #FFFFFF !important;
+}
+
+#imgcode-text{
+  display: inline-block;
+}
+
+.code-img{
+  width: 58px;
+  height: 32px;
+  background-color: #D8D8D8;
+  position: absolute;
+  right: 36px;
+  margin-top: 6px;
 }
 
 #code-text{

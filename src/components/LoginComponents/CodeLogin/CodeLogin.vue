@@ -9,9 +9,9 @@
       <img class="huohua-icon" src="../../../assets/img/login/logo.png"/>
     </div>
 <!--    账号输入框-->
-    <input class="input" :class="{accountActive: accountActive}" id="phone-text" type="text" placeholder="请输入手机号" v-on:blur="phoneBlur()" :maxlength="13" v-on:focus="phoneFocus()">
+    <input class="input" :class="{accountActive: accountActive}" id="phone-text" type="text" placeholder="请输入手机号" v-on:blur="phoneBlur()" :maxlength="13" v-on:focus="phoneFocus()" onkeyup="this.value=this.value.replace(/\s+/g,'')">
 <!--    图形验证码输入框-->
-    <div>
+    <div v-show="imgcodeShow">
       <input class="input" :class="{imgcodeActive: imgcodeActive}" id="imgcode-text" type="text" placeholder="请输入图形验证码" v-on:blur="imgCodeBlur()" v-on:focus="imgCodeFoucs()">
       <img src="" class="code-img" v-on:click="imgCode()">
     </div>
@@ -28,7 +28,7 @@
 <!--    转注册页-->
     <div class="go-registration"><span class="login" v-on:click="goLogin()">注册</span></div>
 <!--    转其他账号登录页-->
-    <div class="other-login">其他账号登录</div>
+    <div class="other-login" @click="otherLogin()">其他账号登录</div>
   </div>
 </template>
 
@@ -42,7 +42,9 @@
           // 焦点在图形验证码框中样式
           imgcodeActive: false,
           // 焦点在四位数字验证码中样式
-          codeActive: false
+          codeActive: false,
+          // 图形验证码的显示隐藏
+          imgcodeShow :false
         }
       },
       methods:{
@@ -72,6 +74,9 @@
             newphone.splice(8, 0, ' ');
             phone.value = newphone.join('');
           }
+          if (this.accountVerify() === true) {
+            this.imgcodeShow = true;
+          }
         },
 
         // 图形验证码框失焦
@@ -93,24 +98,29 @@
 
         // 点击获取验证码
         getVlCode() {
-          console.log('获取验证码');
-          let second = 60;
-          const getViCode = document.getElementById('fetch-code');
-          getViCode.innerHTML = second + '秒后可重发';
-          getViCode.style.color = '#999999';
-          const timeKeeping = setInterval(function () {
-            second--;
-            if (second > 0) {
-              getViCode.innerHTML = second + '秒后可重发';
-              getViCode.style.pointerEvents = 'none';
-            } else {
-              clearInterval(timeKeeping);
-              getViCode.innerHTML = '重新获取验证码';
-              getViCode.style.pointerEvents = 'auto';
-              getViCode.style.color = '#FE5702';
-              second = 60;
-            }
-          }, 1000);
+          if (this.accountVerify() === true && this.imgCodeVerify() === true) {
+            this.imgcodeShow = true;
+            let second = 60;
+            const getViCode = document.getElementById('fetch-code');
+            getViCode.innerHTML = second + '秒后可重发';
+            getViCode.style.color = '#999999';
+            const timeKeeping = setInterval(function () {
+              second--;
+              if (second > 0) {
+                getViCode.innerHTML = second + '秒后可重发';
+                getViCode.style.pointerEvents = 'none';
+              } else {
+                clearInterval(timeKeeping);
+                getViCode.innerHTML = '重新获取验证码';
+                getViCode.style.pointerEvents = 'auto';
+                getViCode.style.color = '#FE5702';
+                second = 60;
+              }
+            }, 1000);
+          } else {
+            const error = document.getElementById('checkonline');
+            error.innerHTML = '请按顺序操作';
+          }
 
         },
 
@@ -123,6 +133,11 @@
 
           // 调用账号验证
           if (this.accountVerify() === false) {
+            return;
+          }
+          this.imgcodeShow = true;
+          // 调用图形验证码验证
+          if (this.imgCodeVerify() === false) {
             return;
           }
 
@@ -182,6 +197,27 @@
 
         },
 
+        // 3 图片验证码验证
+        imgCodeVerify() {
+          const imgCode = document.getElementById('imgcode-text');
+          const error = document.getElementById('checkonline');
+
+          // (1) 图形验证码为空
+          if (imgCode.value === '') {
+            error.innerHTML = '请输入图形验证码';
+            return false;
+          }
+
+          // (2) 四位验证码
+          if (imgCode.value.length !== 4) {
+            error.innerHTML = '请输入正确图形验证码';
+            return false;
+          }
+          // 不满足以上条件，验证成功
+          error.innerHTML = '';
+          return true;
+        },
+
         // 点击还没有账号，注册
         goLogin() {
           this.$emit('registration');
@@ -190,6 +226,11 @@
         // 点击右上角叉号退出
         close() {
           console.log('退出');
+        },
+        // 点击其他登录方式21154
+        otherLogin() {
+          console.log('qita' );
+          this.$emit('otherLogin');
         }
 
       }
@@ -238,8 +279,8 @@
       border-radius: 6px;
       top: 50%;
       left: 50%;
-      margin-top: -170px;
-      margin-left: -160px;
+      margin-top: -13%;
+      margin-left: -10%;
     }
     .huohuaschool-img{
       width: 284px;
@@ -352,10 +393,6 @@
       margin-right: 18px;
     }
 
-    .login{
-      color: #FE5702;
-      margin-right: 24px;
-    }
 
     .login-button:hover{
       opacity: 0.8;

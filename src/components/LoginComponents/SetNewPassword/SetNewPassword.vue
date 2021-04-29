@@ -187,8 +187,8 @@ button.active.focus {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -167px;
-  margin-left: -190px;
+  margin-top: -12%;
+  margin-left: -10%;
 }
 .back{
   width: 24px;
@@ -229,7 +229,7 @@ button.active.focus {
 
 .input{
   display: block;
-  width: 284px;
+  width: 264px;
   height: 44px;
   margin-bottom: 12px;
   margin-left: 18px;

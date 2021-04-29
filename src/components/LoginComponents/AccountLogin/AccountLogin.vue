@@ -13,7 +13,7 @@
 <!--    密码输入框-->
     <input class="input" :class="{passwordActive: passwordActive}" id="password-text" type="password" placeholder="请输入登录密码" v-on:blur="passwordBlur()" v-on:focus="passwordFocus()">
 <!--    图形验证码-->
-    <div v-if="imgcodeShow">
+    <div v-show="imgcodeShow">
       <input class="input" :class="{imgcodeActive: imgcodeActive}" id="imgcode-text" type="text" placeholder="请输入图形验证码" v-on:blur="imgCodeBlur()" v-on:focus="imgCodeFoucs()">
       <img src="" class="code-img">
     </div>
@@ -91,14 +91,6 @@ export default {
     // 密码框失焦五次，图片验证码出现
     passwordBlur() {
       this.passwordActive = false;
-      // if (this.accountVerify() === true) {
-      //   this.count++;
-      //   if ( this.count >= 5) {
-      //     this.imgcodeShow = true;
-      //     return;
-      //   }
-      //
-      // }
     },
 
     // 图形验证码框失焦
@@ -270,8 +262,8 @@ export default {
     border-radius: 6px;
     top: 50%;
     left: 50%;
-    margin-top: -160px;
-    margin-left: -160px;
+    margin-top: -13%;
+    margin-left: -10%;
   }
   .huohuaschool-img{
     width: 284px;

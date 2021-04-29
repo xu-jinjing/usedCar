@@ -20,6 +20,7 @@ export default {
       if (second >= 0) {
         jump.innerHTML = second + '秒后跳转登录页';
       } else {
+        location.reload();
         clearInterval(checkTime);
         second = 3;
       }
