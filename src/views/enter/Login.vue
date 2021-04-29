@@ -1,6 +1,6 @@
 <template>
-  <div class="login">
-    <div>
+  <div class="enter">
+    <div class="login">
     <!--    账号登录页面-->
       <AccountLogin v-if="accountShow" @logincode="code" @forgetPassword="forgetPassword"
                     @registration="login" @otherLogin="otherLogin"></AccountLogin>
@@ -115,7 +115,7 @@ export default{
 <style scoped>
   .login{
     width: 100%;
-    height: 560px;
+    height: 800px;
     background-image: url("../../assets/img/enter/enter.jpg");
   }
 </style>

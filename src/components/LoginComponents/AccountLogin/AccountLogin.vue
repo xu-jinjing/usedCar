@@ -9,7 +9,7 @@
       <img class="huohua-icon" src="../../../assets/img/login/logo.png"/>
     </div>
 <!--    账号输入框-->
-    <input class="input" :class="{accountActive: accountActive}" id="phone-text" type="text" placeholder="请输入手机号" v-on:blur="phoneBlur()" :maxlength="13" v-on:focus="phoneFocus()">
+    <input class="input" :class="{accountActive: accountActive}" id="phone-text" type="text" placeholder="请输入手机号" v-on:blur="phoneBlur()" :maxlength="13" v-on:focus="phoneFocus()" onkeyup="this.value=this.value.replace(/\s+/g,'')">
 <!--    密码输入框-->
     <input class="input" :class="{passwordActive: passwordActive}" id="password-text" type="password" placeholder="请输入登录密码" v-on:blur="passwordBlur()" v-on:focus="passwordFocus()">
 <!--    图形验证码-->
@@ -91,14 +91,14 @@ export default {
     // 密码框失焦五次，图片验证码出现
     passwordBlur() {
       this.passwordActive = false;
-      if (this.accountVerify() === true) {
-        this.count++;
-        if ( this.count >= 5) {
-          this.imgcodeShow = true;
-          return;
-        }
-
-      }
+      // if (this.accountVerify() === true) {
+      //   this.count++;
+      //   if ( this.count >= 5) {
+      //     this.imgcodeShow = true;
+      //     return;
+      //   }
+      //
+      // }
     },
 
     // 图形验证码框失焦
@@ -114,7 +114,16 @@ export default {
       }
       //     调用密码验证，若返回false，则结束整个方法，返回true，则继续执行下一步
       if (this.passwordVerify() === false) {
-        return;
+        this.count++;
+        if (this.count < 5) {
+          return;
+        }
+        if ( this.count >= 5) {
+          this.imgcodeShow = true;
+          if (this.imgCodeVerify() === false) {
+            return;
+          }
+        }
       }
 
       //    满足所有条件，触发登录按钮点击事件，跳转页面
@@ -176,6 +185,26 @@ export default {
       checkonline.innerHTML = '';
       return true;
 
+    },
+
+    imgCodeVerify() {
+      const imgCode = document.getElementById('imgcode-text');
+      const checkonline = document.getElementById('checkonline');
+
+      // (1) 图形验证码为空
+      if (imgCode.value === '') {
+        checkonline.innerHTML = '请输入图形验证码';
+        return false;
+      }
+
+      // (2) 四位验证码
+      if (imgCode.value.length !== 4) {
+        checkonline.innerHTML = '请输入正确图形验证码';
+        return false;
+      }
+      // 不满足以上条件，验证成功
+      checkonline.innerHTML = '';
+      return true;
     },
 
 

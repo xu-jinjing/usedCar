@@ -45,7 +45,11 @@ export default {
 
 <style scoped>
     /* @import "./assets/css/base"; */
-   *{margin: 0;padding: 0;}
+   *{margin: 0px;padding: 0px;}
+    html,body{
+      margin: 0;
+      padding: 0;
+    }
     *{list-style-type: none;}
     a{text-decoration: none;color: white;}
     .header{width: 100%;height:100px ;background-color:rgb(15, 15, 15);position: relative;}
