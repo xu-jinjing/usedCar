@@ -394,7 +394,7 @@
 
     *{list-style-type: none;}
     a{text-decoration: none;color: black;}
-  .waist{margin-top: 50px;background-color: rgb(241, 238, 234);width: 1309px;height: 1100px;padding-left: 40px;
+  .waist{margin-top: 50px;width: 100%;height: 1100px;padding-left: 40px;
             padding-top: 38px;overflow: hidden;}
             .waist ul{height: 50px;margin-top: 20px;}
             .waist ul li{float: left;width: 100px;margin: 10px;}

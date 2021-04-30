@@ -40,6 +40,9 @@
   }
 </script>
 <style scoped>
+  .centerTopImg,.centerImg,.centerBottomImg{
+    width: 100%;
+  }
   .sell img {
     width: 100%;
   }

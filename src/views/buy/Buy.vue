@@ -62,7 +62,7 @@
     a{text-decoration: none;color: black;}
   .nav{margin-left: 20px;margin-right: 20px;height: 160px;}
     .nav .box1{width: 100%;float: left;background-color: aliceblue;}
-        .box1 ul{margin-top: 10px;}
+        .box1 ul{margin-top: 10px; width: 1300px}
         .box1 ul li{float: left;margin: 0 20px 20px 20px;width: 70px;} 
         .box1 ul li a:hover{color: coral;}
     .nav .box2{width: 100%;float: left;background-color: aliceblue;}
@@ -71,9 +71,5 @@
         .box2 ul li a:hover{color: coral;}
 
     .router-link-active{color: coral ;}
-    /* .nav .box3{width: 100%;float: left;background-color: aliceblue;}
-        .box3 ul{margin-top: 10px;}
-        .box3 ul li{float: left;margin: 0 20px 20px 20px;width: 70px;} 
-        .box3 ul li a:hover{color: coral;} */
 
 </style>

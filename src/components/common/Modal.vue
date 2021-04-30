@@ -26,7 +26,7 @@ export default {
         },
         title: {
             type: String,
-            default: ''
+            default: '提示信息'
         },
     },
     data() {
