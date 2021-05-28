@@ -11,9 +11,12 @@
 <!--    重置密码页标题-->
       <div class="title">重置密码</div>
 <!--    输入密码框-->
-    <input class="input" :class="{passwordActive: passwordActive}" id="password-text" type="password" placeholder="请输入密码" v-on:blur="passwordBlur()" v-on:focus="passwordFocus()">
+    <input class="input" :class="{passwordActive: passwordActive}" id="password-text" type="password" 
+    placeholder="请输入密码" v-on:blur="passwordBlur()" v-on:focus="passwordFocus()" autocomplete="off">
 <!--    再次输入密码框-->
-    <input class="input" :class="{passwordAgain: passwordAgain}" id="input-again" type="password" placeholder="请再次输入密码" v-on:blur="passwordAgainBlur()" v-on:focus="passwordAgainFocus()">
+    <input class="input" :class="{passwordAgain: passwordAgain}" id="input-again" type="password" 
+    placeholder="请再次输入密码" v-on:blur="passwordAgainBlur()" 
+    v-on:focus="passwordAgainFocus()" autocomplete="off">
 <!--    该div用于存放验证不通过时的提示文字-->
     <div id="checkonline"></div>
 <!--    完成按钮-->
@@ -139,6 +142,7 @@ export default  {
 
     // 点击右上角叉号退出
     close() {
+      location.reload()
       console.log('退出');
     }
   }

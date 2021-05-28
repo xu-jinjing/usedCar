@@ -4,18 +4,26 @@
 <!--    右上角关闭-->
     <div class="close" v-on:click="close()">
     </div>
-<!--    火花logo-->
+<!--    logo-->
     <div class="huohuaschool-img">
       <img class="huohua-icon" src="../../../assets/img/login/logo.png"/>
+      <h2>花生三手车</h2>
     </div>
 <!--    账号输入框-->
-    <input class="input" :class="{accountActive: accountActive}" id="phone-text" type="text" placeholder="请输入手机号" v-on:blur="phoneBlur()" :maxlength="13" v-on:focus="phoneFocus()" onkeyup="this.value=this.value.replace(/\s+/g,'')">
+    <input class="input" :class="{accountActive: accountActive}" 
+    id="phone-text" type="text" placeholder="请输入手机号" v-on:blur="phoneBlur()" 
+    :maxlength="13" v-on:focus="phoneFocus()" autocomplete="off"
+    onkeyup="this.value=this.value.replace(/\s+/g,'')">
 <!--    密码输入框-->
-    <input class="input" :class="{passwordActive: passwordActive}" id="password-text" type="password" placeholder="请输入登录密码" v-on:blur="passwordBlur()" v-on:focus="passwordFocus()">
+    <input class="input" :class="{passwordActive: passwordActive}" 
+    id="password-text" type="password" placeholder="请输入登录密码" 
+    v-on:blur="passwordBlur()" v-on:focus="passwordFocus()">
 <!--    图形验证码-->
     <div v-show="imgcodeShow">
-      <input class="input" :class="{imgcodeActive: imgcodeActive}" id="imgcode-text" type="text" placeholder="请输入图形验证码" v-on:blur="imgCodeBlur()" v-on:focus="imgCodeFoucs()">
-      <img src="" class="code-img">
+      <input class="input" :class="{imgcodeActive: imgcodeActive}" 
+      id="imgcode-text" type="text" placeholder="请输入图形验证码" 
+      v-on:blur="imgCodeBlur()" v-on:focus="imgCodeFoucs()" autocomplete="off">
+      <img :src=imgUrl class="code-img" @click="imgCode()">
     </div>
 <!--    转忘记密码页面-->
     <span class="forget-password" v-on:click="forgetPassword()">忘记密码</span>
@@ -48,6 +56,7 @@ export default {
       passwordActive: false,
       // 焦点在图形验证码框中样式
       imgcodeActive: false,
+       imgUrl : require('../../../assets/img/login/codeImg.jpg')
     }
   },
   methods:{
@@ -117,6 +126,8 @@ export default {
           }
         }
       }
+
+      this.$router.push('/home')
 
       //    满足所有条件，触发登录按钮点击事件，跳转页面
     },
@@ -199,6 +210,10 @@ export default {
       return true;
     },
 
+    //  点击图形验证码
+    imgCode() {
+      this.imgUrl = require('../../../assets/img/login/codeImg2.jpg')
+    },
 
     // 点击还没有账号注册
     registration() {
@@ -207,6 +222,7 @@ export default {
 
     // 点击右上角叉号退出
     close() {
+      this.$router.push('/home')
       console.log('退出');
     },
 

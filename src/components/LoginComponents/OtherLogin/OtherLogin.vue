@@ -10,6 +10,7 @@
       <!--    火花logo-->
       <div class="huohuaschool-img">
         <img class="huohua-icon" src="../../../assets/img/login/logo.png"/>
+        <h2>花生三手车</h2>
       </div>
 
 <!--    其他账号列表-->
@@ -32,39 +33,39 @@ export default {
     return{
       accountListData : [
         {
-          img: require('../../../assets/img/login/huohuaIcon.png'),
+          img: require('../../../assets/img/swiper/1.jpg'),
           title: '南京江别新区',
-          subtitle: '南京智慧教育云服务认证中心'
+          subtitle: '南京某某车行'
         },
         {
-          img: require('../../../assets/img/login/huohuaIcon.png'),
-          title: '芜湖智慧教育云',
-          subtitle: '芜湖智慧教育云服务认证中心'
+          img: require('../../../assets/img/swiper/2.jpg'),
+          title: '芜湖战区',
+          subtitle: '芜湖某某车行'
         },
         {
-          img: require('../../../assets/img/login/huohuaIcon.png'),
-          title: '芜湖智慧教育云',
-          subtitle: '芜湖智慧教育云服务认证中心'
+          img: require('../../../assets/img/swiper/3.jpg'),
+          title: '合肥战区',
+          subtitle: '合肥某某车行'
         },
         {
-          img: require('../../../assets/img/login/huohuaIcon.png'),
-          title: '芜湖智慧教育云',
-          subtitle: '芜湖智慧教育云服务认证中心'
+          img: require('../../../assets/img/swiper/4.jpg'),
+          title: '黄山战区',
+          subtitle: '黄山某某车行'
         },
         {
-          img: require('../../../assets/img/login/huohuaIcon.png'),
-          title: '芜湖智慧教育云',
-          subtitle: '芜湖智慧教育云服务认证中心'
+          img: require('../../../assets/img/swiper/5.jpg'),
+          title: '黄山战区',
+          subtitle: '黄山某某车行'
         },
         {
-          img: require('../../../assets/img/login/huohuaIcon.png'),
-          title: '芜湖智慧教育云',
-          subtitle: '芜湖智慧教育云服务认证中心'
+          img: require('../../../assets/img/swiper/6.jpg'),
+          title: '黄山战区',
+          subtitle: '黄山某某车行'
         },
         {
-          img: require('../../../assets/img/login/huohuaIcon.png'),
-          title: '芜湖智慧教育云',
-          subtitle: '芜湖智慧教育云服务认证中心'
+          img: require('../../../assets/img/swiper/1.jpg'),
+          title: '黄山战区',
+          subtitle: '黄山某某车行'
         },
       ]
     }
@@ -77,6 +78,7 @@ export default {
 
     // 点击右上角关闭
     close() {
+      location.reload()
       console.log('关闭');
     }
   }
@@ -90,7 +92,7 @@ export default {
 
   .other-login{
     width: 320px;
-    height: 382px;
+    height: 432px;
     background: #FFFFFF;
     border: 1px solid rgba(0,0,0,0.06);
     box-shadow: 0 8px 14px 0 rgba(0,0,0,0.08);
@@ -126,6 +128,7 @@ export default {
   }
   .close:hover{
     background-image: url("../../../assets/img/login/close-active.png");
+    cursor: pointer;
   }
 
   .huohuaschool-img{
@@ -164,6 +167,7 @@ export default {
   }
 
   .title{
+    width: 70%;
     font-size: 15px;
     color: #6B6B6B;
     letter-spacing: 0;

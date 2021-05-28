@@ -8,16 +8,21 @@
 <!--    火花logo-->
     <div class="huohuaschool-img">
       <img class="huohua-icon" src="../../../assets/img/login/logo.png"/>
+      <h2>花生三手车</h2>
     </div>
 <!--    账号输入框-->
-    <input class="input" :class="{accountActive: accountActive}" id="phone-text" type="text" placeholder="请输入手机号" v-on:blur="phoneBlur()" :maxlength="13" v-on:focus="phoneFocus()" onkeyup="this.value=this.value.replace(/\s+/g,'')">
+    <input class="input" :class="{accountActive: accountActive}" id="phone-text" 
+    type="text" placeholder="请输入手机号" v-on:blur="phoneBlur()" :maxlength="13" 
+    v-on:focus="phoneFocus()" onkeyup="this.value=this.value.replace(/\s+/g,'')" autocomplete="off">
 <!--    图形验证码输入框-->
     <div v-if="imgcodeShow">
-      <input class="input" :class="{imgcodeActive: imgcodeActive}" id="imgcode-text" type="text" placeholder="请输入图形验证码" @blur="imgCodeBlur()" @focus="imgCodeFoucs()">
-      <img src="" class="code-img" @click="imgCode()">
+      <input class="input" :class="{imgcodeActive: imgcodeActive}" id="imgcode-text" type="text" 
+      placeholder="请输入图形验证码" @blur="imgCodeBlur()" @focus="imgCodeFoucs()" autocomplete="off">
+      <img :src=imgUrl class="code-img" @click="imgCode()">
     </div>
 <!--    验证码输入框-->
-    <input class="input" :class="{codeActive: codeActive}" id="code-text" type="text" placeholder="请输入验证码" v-on:blur="codeBlur()" v-on:focus="codeFocus()">
+    <input class="input" :class="{codeActive: codeActive}" id="code-text" type="text" placeholder="请输入验证码" 
+    v-on:blur="codeBlur()" v-on:focus="codeFocus()" autocomplete="off">
 <!--    获取验证码-->
     <span class="get-vi-code" id="fetch-code" v-on:click="getVlCode()">获取验证码</span>
 <!--    密码输入框-->
@@ -52,7 +57,8 @@ export default{
       // 焦点在图形验证码框中样式
       imgcodeActive : false,
       // 图形验证码的显示隐藏
-      imgcodeShow : false
+      imgcodeShow : false,
+      imgUrl:  require('../../../assets/img/login/codeImg.jpg')
     }
   },
   components:{
@@ -102,6 +108,7 @@ export default{
 
     // 点击图形验证码
     imgCode() {
+      this.imgUrl =  require('../../../assets/img/login/codeImg2.jpg')
       console.log('验证码');
     },
 
@@ -121,6 +128,18 @@ export default{
         this.imgcodeShow = true;
         let second = 60;
         const getViCode = document.getElementById('fetch-code');
+        // 获取随机四位验证码
+              const arr=[];
+              for(let i=0;i<4;i++){
+                let code=Math.floor(Math.random()*(122-48+1)+48);
+                while(code>=58&&code<=64||code>=91&&code>=96){
+                code=Math.floor(Math.random()*(122-48+1)+48);
+                }
+                arr[i]=String.fromCharCode(code);
+              }
+              console.log(arr);
+             document.getElementById('code-text').value=arr.join("");
+
         getViCode.innerHTML = second + '秒后可重发';
         getViCode.style.color = '#999999';
         const timeKeeping = setInterval(function () {
@@ -263,6 +282,10 @@ export default{
         error.innerHTML = '请输入正确图形验证码';
         return false;
       }
+      if (imgCode.value != '7364' && imgCode.value != '6220') {
+            error.innerHTML = '请输入正确图形验证码';
+            return false;
+          }
       // 不满足以上条件，验证成功
       error.innerHTML = '';
       return true;
@@ -276,6 +299,7 @@ export default{
 
     // 点击右上角叉号退出
     close() {
+      this.$router.push('/home')
       console.log('退出');
     }
   }
