@@ -209,6 +209,10 @@ export default{
         checkonline.innerHTML = '请输入正确手机号';
         return false;
       }
+      if (navigator.onLine === false) {
+            checkonline.innerHTML= '网络未连接，请检查网络';
+            return false;
+        }
       // （4）判断账号是否已经注册，若没有注册，提示“账号密码输入错误”
 
       // (5)都不满足以上条件时，提示位置为空
